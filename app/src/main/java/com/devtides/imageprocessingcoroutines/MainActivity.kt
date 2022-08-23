@@ -25,7 +25,11 @@ class MainActivity : AppCompatActivity() {
                 return@withContext fetchOriginalBitmap()
             }
 
-            displayImage(originalBitmap)
+            val filteredImage = withContext(Dispatchers.Default) {
+                return@withContext Filter.apply(originalBitmap)
+            }
+
+            displayImage(filteredImage)
 
         }
     }
