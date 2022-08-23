@@ -47,4 +47,9 @@ class MainActivity : AppCompatActivity() {
         imageView.setImageBitmap(bitmap)
         imageView.visibility = View.VISIBLE
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        coroutineScope.cancel()
+    }
 }
